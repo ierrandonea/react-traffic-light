@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+const App = props => {
+  const [a, setA] = useState(false);
+  const [b, setB] = useState(false);
+  const [c, setC] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <div className={ "red light" + (a === true ? " selected" : "")} onClick={() => {
+          setA(true);
+          setB(false);
+          setC(false);
+        }}></div>
+        <div className={ "yellow light" + (b === true ? " selected" : "")} onClick={() => {
+          setB(true);
+          setA(false);
+          setC(false);
+        }}></div>
+        <div className={ "green light" + (c === true ? " selected" : "")} onClick={() => {
+          setC(true);
+          setA(false);
+          setB(false);
+        }}></div>
+        </div>
+      <div className="post"></div>
     </div>
   );
 }
